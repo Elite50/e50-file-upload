@@ -1,0 +1,23 @@
+{
+  "name": "e50-file-upload",
+  "version": "0.0.1",
+  "authors": [
+    "JP <jsniezek@crowdskout.com>"
+  ],
+  "description": "AngularJS file upload directive",
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26",
+    "Simple-Ajax-Uploader": "git://github.com/LPology/Simple-Ajax-Uploader.git"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E50 Filter Bar</title>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/Simple-Ajax-Uploader/SimpleAjaxUploader.js"></script>
+  <script src="../dist/e50-file-upload.js"></script>
+</head>
+<body ng-app="app">
+  
+  <h1>File upload directive</h1>
+  
+  <div ng-controller="MainCtrl">
+    <a href="" e50-upload options="options" callbacks="callbacks">Upload</a>
+    <p>Response from the server (this will vary depending on your server): </p>
+    <pre>{{response|json}}</pre>
+    <p>Errors: </p>
+    <pre>{{errors|json}}</pre>    
+  </div>
+
+  <script src="http://localhost:2342/livereload.js"></script> 
+  <script src="main.js"></script>
+</body>
+</html>
