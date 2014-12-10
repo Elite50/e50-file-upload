@@ -1,6 +1,3 @@
-angular.module('e50Filter.tpls', []);
-
-
 angular.module('e50FileUpload', []);
 angular.module('e50FileUpload')
 .directive('e50Upload', function() {
