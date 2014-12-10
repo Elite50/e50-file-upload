@@ -2,11 +2,15 @@ var app = angular.module('app', ['e50FileUpload']);
 app.controller('MainCtrl', function($scope, $http) {
   $scope.response = false;
   $scope.errors = false;
+  
+  // Uploader options
   $scope.options = {
     url: '/demo/fakeResponse.json',
     method: 'GET',
     allowedExtensions: ['png']
   };
+
+  // Callbacks
   $scope.callbacks = {
     onStart: function() {
       console.log('starting');

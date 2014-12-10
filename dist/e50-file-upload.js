@@ -11,54 +11,53 @@ angular.module('e50FileUpload')
       callbacks: "=?"
     },
     link: function(scope, elm) {
-      var btn = elm[0];
-      
-      function safe_tags(str) {
-        return String(str)
-          .replace( /&/g, '&amp;' )
-          .replace( /"/g, '&quot;' )
-          .replace( /'/g, '&#39;' )
-          .replace( /</g, '&lt;' )
-          .replace( />/g, '&gt;' );
-      }
 
+      // set the upload button
+      var uploadBtn = elm[0];
+
+      // setup callbacks
       var callbacks = {};
 
+      // on upload start
       callbacks.onStart = function() {
         console.log('starting');
         console.log(arguments);
       }
 
+      // on upload success
       callbacks.onSuccess = function() {
         console.log('successful');
         console.log(arguments);
       }
 
+      // on upload error
       callbacks.onError = function() {
         console.log('error occurred');
         console.log(arguments);
       }
 
+      // on upload extenstion error
       callbacks.onExtError = function(filename, extension) {
         console.error('Uploading ' + extension + ' not supported');
       };
 
+      // on upload size error
       callbacks.onSizeError = function(filename, fileSize) {
         console.error('File size ' + fileSize + ' not supported');
       };
 
+      // Override the default callbacks
       angular.extend(callbacks, scope.callbacks);
 
+      // default options
       var defaults = {
-        button: btn,
+        button: uploadBtn,
         url: "/",
         name: 'file',
         method: 'POST',
         cors: true,
         multipart: true,
-        customHeaders: {
-          token: "token"
-        },
+        customHeaders: {},
         maxSize: 500,
         allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
         accept: '*/*',
@@ -86,8 +85,10 @@ angular.module('e50FileUpload')
         }
       };
 
+      // override the default options
       angular.extend(defaults, scope.options);
 
+      // create a new uploader
       var uploader = new ss.SimpleUpload(defaults);
     }
   };
